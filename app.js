@@ -14,7 +14,12 @@ require('./DB/DB_CONNECTION');
 
 
 var index= require('./ROUTES/index');
+var checkLoginEmail= require('./ROUTES/checkLoginEmail');
+var checkLogin= require('./ROUTES/checkLogin');
+
 app.use('/index', index);
+app.use('/checkemail', checkLoginEmail);
+app.use('/login', checkLogin);
 
 
 app.listen(1954);
