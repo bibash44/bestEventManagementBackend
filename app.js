@@ -6,6 +6,8 @@ const path = require('path')
 const multer = require('multer')
 
 
+app.use("/upload/images/", express.static("upload/images/"));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors());
@@ -17,9 +19,11 @@ var index= require('./ROUTES/index');
 var checkLoginEmail= require('./ROUTES/checkLoginEmail');
 var checkLogin= require('./ROUTES/checkLogin');
 
+
 app.use('/index', index);
 app.use('/checkemail', checkLoginEmail);
 app.use('/login', checkLogin);
+
 
 
 app.listen(1954);
