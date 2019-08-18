@@ -18,12 +18,18 @@ require('./DB/DB_CONNECTION');
 var index= require('./ROUTES/index');
 var checkLoginEmail= require('./ROUTES/checkLoginEmail');
 var checkLogin= require('./ROUTES/checkLogin');
+var reviews= require('./ROUTES/review');
 
 
 app.use('/index', index);
 app.use('/checkemail', checkLoginEmail);
 app.use('/login', checkLogin);
+app.use('/review', reviews)
 
+
+
+
+app.use("/uploads/images/clients", express.static("uploads/images/clients"));
 
 
 app.listen(1954);

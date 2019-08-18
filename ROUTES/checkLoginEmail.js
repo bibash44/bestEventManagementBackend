@@ -5,10 +5,14 @@ var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
-    requireTLS:true,
+     secure: false,
+     port: 25,
     auth: {
         user: 'bibashkatel4@gmail.com',
         pass: 'tejkmlnlqekzbfyq'
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 
@@ -73,7 +77,7 @@ function insertLoginDetails(email){
             sendPasswordToRegisteredEmail(email, password);
         }
 
-        return false;
+        
       });
 }
 
