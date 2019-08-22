@@ -4,6 +4,7 @@ var db= require('../DB/DB_CONNECTION');
 const app = express();
 var multer= require('multer');
 const path = require('path')
+var fs = require('fs');
 
 /* for date and time of comment */
 var d = new Date();
@@ -133,5 +134,25 @@ router.post('/upload/image', upload.single('image'), function (req, res) {
     }, null, 3));
 }
 )
+
+router.delete('/', (req, res) => {
+    var id = req.body.id;
+    var imageName = req.body.image;
+    console.log(req.body)
+    console.log(imageName)
+    fs.unlink('./UPLOADS/images/clients/' + imageName, function(err) {
+        if (err) {
+            return console.log(err)
+        } else {
+            console.log('old file unlinked')
+        }
+    })
+
+    var deleteReviews = 'DELETE FROM review WHERE id="' + id + '"';
+    db.query(deleteReviews, function(err, result, fields) {
+        if (err) throw err;
+        res.json('true')
+    });
+})
 
 module.exports=router;
