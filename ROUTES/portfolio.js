@@ -15,6 +15,15 @@ router.get('/getPortfolio', function(req, res) {
 
 })
 
+router.get('/get_portfolio_type/:type', function(req, res) {
+    var type= req.params.type;
+    portfolioType= 'select * from portfolio where type="' + type + '"';
+    db.query(portfolioType, function(err, result, fields) {
+        if (err) throw err;
+        res.json(result)
+    });
+});
+
 router.post('/addPortfolio', (req, res) => {
     var type = req.body.type;
     // var imageTitle = req.body.imageTitle;

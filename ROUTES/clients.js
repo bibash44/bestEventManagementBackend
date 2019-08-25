@@ -11,7 +11,6 @@ router.get('/getClients', function(req, res) {
         if (err) throw err;
         res.json(result)
     });
-
 })
 
 router.post('/addClients', (req, res) => {

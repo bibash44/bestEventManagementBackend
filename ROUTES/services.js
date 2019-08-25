@@ -5,15 +5,27 @@ var fs = require('fs');
 const path = require('path')
 const multer = require('multer')
 
-var sql = 'select * from services';
+
 
 router.get('/getServices', function(req, res) {
+    var sql = 'select * from services';
     db.query(sql, function(err, result, fields) {
         if (err) throw err;
         res.json(result)
     });
+});
 
-})
+
+router.get('/get_services_type/:type', function(req, res) {
+    var type= req.params.type;
+    servicesType= 'select * from services where type="' + type + '"';
+    db.query(servicesType, function(err, result, fields) {
+        if (err) throw err;
+        res.json(result)
+    });
+});
+
+
 router.get('/get_by_id', function(req, res) {
     var sqlbyid = 'select * from services where id="' + req.body.id + '"';
     console.log(sqlbyid)

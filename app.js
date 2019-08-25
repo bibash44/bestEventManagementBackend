@@ -36,6 +36,7 @@ var aboutus = require('./ROUTES/aboutus');
 var services_home = require('./ROUTES/services_home');
 var sliding_image = require('./ROUTES/sliding_image');
 var success_story = require('./ROUTES/success_story');
+var booking= require('./ROUTES/booking');
 
 /* routes for frontend for front end */
 app.use('/index', index);
@@ -51,6 +52,7 @@ app.use('/aboutus', aboutus);
 app.use('/services_home', services_home);
 app.use('/sliding_image', sliding_image);
 app.use('/success_story', success_story);
+app.use('/booking', booking);
 
 
 
