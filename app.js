@@ -14,6 +14,7 @@ app.use("/UPLOADS/images/services_home", express.static("UPLOADS/images/services
 app.use("/UPLOADS/images/sliding_image", express.static("UPLOADS/images/sliding_image"));
 app.use("/UPLOADS/images/success_story", express.static("UPLOADS/images/success_story"));
 app.use("/UPLOADS/images/clients", express.static("UPLOADS/images/clients"));
+app.use("/UPLOADS/images/clients", express.static("uploads/images/clients"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -59,8 +60,6 @@ app.use('/booking', booking);
 /* routes for backend */
 
 
-
-app.use("/uploads/images/clients", express.static("uploads/images/clients"));
 
 
 app.listen(1954);

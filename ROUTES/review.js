@@ -30,9 +30,6 @@ var fullTime = hour + ':' + minutes + ':' + seconds + ' ' + am_pm;
 
 router.post('/', function(req, res){
 
-    console.log('request received')
-    console.log(req.body)
-
     var date= fullDate+' at '+fullTime;
     var name= req.body.name;
     var comment= req.body.comment;

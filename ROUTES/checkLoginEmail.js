@@ -4,9 +4,9 @@ var db= require('../DB/DB_CONNECTION');
 var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
-     secure: false,
-     port: 25,
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         user: 'bibashkatel4@gmail.com',
         pass: 'tejkmlnlqekzbfyq'
