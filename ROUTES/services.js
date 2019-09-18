@@ -114,7 +114,6 @@ router.delete('/delete', (req, res) => {
 
 
 
-//insert image
 var TotalImage;
 var storage = multer.diskStorage({
     destination: 'UPLOADS/images/services',
