@@ -28,7 +28,7 @@ var checkLoginEmail= require('./ROUTES/checkLoginEmail');
 var checkLogin= require('./ROUTES/checkLogin');
 var reviews= require('./ROUTES/review');
 
-var clients = require('./ROUTES/clients');
+// var clients = require('./ROUTES/clients');
 var contact = require('./ROUTES/contact');
 var home = require('./ROUTES/home');
 var portfolio = require('./ROUTES/portfolio');
@@ -44,7 +44,7 @@ app.use('/index', index);
 app.use('/checkemail', checkLoginEmail);
 app.use('/login', checkLogin);
 app.use('/review', reviews)
-app.use('/clients', clients);
+// app.use('/clients', clients);
 app.use('/contact', contact);
 app.use('/home', home);
 app.use('/portfolio', portfolio);
