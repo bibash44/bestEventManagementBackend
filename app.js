@@ -6,15 +6,15 @@ const path = require('path')
 const multer = require('multer')
 
 
-app.use("/upload/images/", express.static("upload/images/"));
-app.use("/UPLOADS/images/services", express.static("UPLOADS/images/services"));
-app.use("/UPLOADS/images/portfolio", express.static("UPLOADS/images/portfolio"));
-app.use("/UPLOADS/images/clients", express.static("UPLOADS/images/clients"));
-app.use("/UPLOADS/images/services_home", express.static("UPLOADS/images/services_home"));
-app.use("/UPLOADS/images/sliding_image", express.static("UPLOADS/images/sliding_image"));
-app.use("/UPLOADS/images/success_story", express.static("UPLOADS/images/success_story"));
-app.use("/UPLOADS/images/clients", express.static("UPLOADS/images/clients"));
-app.use("/UPLOADS/images/clients", express.static("uploads/images/clients"));
+app.use("/uploads/images/", express.static("uploads/images/"));
+app.use("/uploads/images/services", express.static("uploads/images/services"));
+app.use("/uploads/images/portfolio", express.static("uploads/images/portfolio"));
+app.use("/uploads/images/clients", express.static("uploads/images/clients"));
+app.use("/uploads/images/services_home", express.static("uploads/images/services_home"));
+app.use("/uploads/images/sliding_image", express.static("uploads/images/sliding_image"));
+app.use("/uploads/images/success_story", express.static("uploads/images/success_story"));
+app.use("/uploads/images/clients", express.static("uploads/images/clients"));
+app.use("/uploads/images/clients", express.static("uploads/images/clients"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))

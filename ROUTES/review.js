@@ -122,7 +122,6 @@ var upload = multer({
 });
 
 router.post('/upload/image', upload.single('image'), function (req, res) {
-    console.log(ImagefileName)
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
         image: ImagefileName
@@ -135,7 +134,7 @@ router.delete('/', (req, res) => {
     var imageName = req.body.image;
     console.log(req.body)
     console.log(imageName)
-    fs.unlink('./UPLOADS/images/clients/' + imageName, function(err) {
+    fs.unlink('./uploads/images/clients/' + imageName, function(err) {
         if (err) {
             return console.log(err)
         } else {

@@ -72,7 +72,7 @@ router.put('/update/services', (req, res) => {
         if (OldImage == image) {
             console.log('old file received')
         } else {
-            fs.unlink('./UPLOADS/images/services/' + OldImage, function(err) {
+            fs.unlink('./uploads/images/services/' + OldImage, function(err) {
                 if (err) {
                     return console.log(err)
                 } else {
@@ -117,7 +117,7 @@ router.delete('/delete', (req, res) => {
 //insert image
 var TotalImage;
 var storage = multer.diskStorage({
-    destination: 'UPLOADS/images/services',
+    destination: 'uploads/images/services',
     filename: function(req, file, callback) {
         const ext = path.extname(file.originalname);
         TotalImage = file.fieldname + Date.now() + ext;

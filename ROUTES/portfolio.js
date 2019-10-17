@@ -40,7 +40,7 @@ router.post('/addPortfolio', (req, res) => {
 //insert image
 var TotalImage;
 var storage = multer.diskStorage({
-    destination: 'UPLOADS/images/portfolio',
+    destination: 'uploads/images/portfolio',
     filename: function(req, file, callback) {
         const ext = path.extname(file.originalname);
         TotalImage = file.fieldname + Date.now() + ext;
@@ -86,7 +86,7 @@ router.put('/update/portfolio', (req, res) => {
         if (OldImage == image) {
             console.log('old file received')
         } else {
-            fs.unlink('./UPLOADS/images/portfolio/' + OldImage, function(err) {
+            fs.unlink('./uploads/images/portfolio/' + OldImage, function(err) {
                 if (err) {
                     return console.log(err)
                 } else {
@@ -110,7 +110,7 @@ router.delete('/delete', (req, res) => {
     var imageName = req.body.image;
     console.log(req.body)
     console.log(imageName)
-    fs.unlink('./UPLOADS/images/portfolio/' + imageName, function(err) {
+    fs.unlink('./uploads/images/portfolio/' + imageName, function(err) {
         if (err) {
             return console.log(err)
         } else {

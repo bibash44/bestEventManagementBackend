@@ -58,7 +58,7 @@ router.post('/addOurSuccessStory', (req, res) => {
 //insert image
 var SuccessImage;
 var storageSuccess = multer.diskStorage({
-    destination: 'UPLOADS/images/success_story',
+    destination: 'uploads/images/success_story',
     filename: function(req, file, callback) {
         const ext = path.extname(file.originalname);
         SuccessImage = file.fieldname + Date.now() + ext;

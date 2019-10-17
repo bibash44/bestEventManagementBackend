@@ -58,7 +58,7 @@ router.put('/update', (req, res) => {
         if (OldImage == image) {
             console.log('old file received')
         } else {
-            fs.unlink('./UPLOADS/images/success_story/' + OldImage, function(err) {
+            fs.unlink('./uploads/images/success_story/' + OldImage, function(err) {
                 if (err) {
                     return console.log(err)
                 } else {
@@ -80,7 +80,7 @@ router.delete('/delete', (req, res) => {
     var imageName = req.body.image;
     console.log(req.body)
     console.log(imageName)
-    fs.unlink('./UPLOADS/images/success_story/' + imageName, function(err) {
+    fs.unlink('./uploads/images/success_story/' + imageName, function(err) {
         if (err) {
             return console.log(err)
         } else {
@@ -101,7 +101,7 @@ router.delete('/delete', (req, res) => {
 //insert image
 var TotalImage;
 var storage = multer.diskStorage({
-    destination: 'UPLOADS/images/success_story',
+    destination: 'uploads/images/success_story',
     filename: function(req, file, callback) {
         const ext = path.extname(file.originalname);
         TotalImage = file.fieldname + Date.now() + ext;
