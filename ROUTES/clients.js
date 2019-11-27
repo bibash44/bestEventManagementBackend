@@ -7,37 +7,15 @@ const path = require('path')
 var fs = require('fs');
 
 /* for date and time of comment */
-var d = new Date();
-var am_pm = 'AM';
-var year = d.getFullYear();
-var month = d.getMonth() + 1;
-var day = d.getDate();
 
-var hour = d.getHours();
-var minutes = d.getMinutes();
-var seconds = d.getSeconds();
-
-if (hour > 12) {
-    am_pm = 'PM'
-    hour = hour - 12;
-}
-
-
-var fullDate = year + '/' + month + '/' + day;
-var fullTime = hour + ':' + minutes + ':' + seconds + ' ' + am_pm;
 
 /* actual route */
 
 router.post('/', function (req, res) {
 
-    var date = fullDate + ' at ' + fullTime;
-    var name = req.body.name;
-    var comment = req.body.comment;
     var image = req.body.image;
-    var position = req.body.position;
-
-
-    var insert_comment = "INSERT INTO `review` (`id`, `name`, `position`, `comment`, `date` , `image`) VALUES (NULL, " + '"' + name + '"' + ", " + '"' + position + '"' + ", " + '"' + comment + '"' + ", " + '"' + date + '"' + ", " + '"' + image + '"' + ");";
+    console.log(req.body);
+    var insert_comment = "INSERT INTO `clients` (`id` , `image`) VALUES (NULL, " + '"' + image + '"' + ");";
 
     db.query(insert_comment, function (err, result, fields) {
         if (err) {
@@ -61,9 +39,10 @@ router.post('/', function (req, res) {
 
 
 router.get('/', function (req, res) {
-    var select_comment = "SELECT * FROM `review` ORDER BY `date` DESC";
+    var select_comment = "SELECT * FROM `clients` ";
 
     db.query(select_comment, function (err, result, fields) {
+        
         if (err) {
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({
@@ -73,23 +52,9 @@ router.get('/', function (req, res) {
         }
 
         else if (result.length > 0) {
-            console.log(result)
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({
-                success: true,
-                data: result
-
-            }, null, 3));
+            res.json(result);
         }
-
-        else {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({
-                success: false,
-                data: result
-
-            }, null, 3));
-        }
+      
 
     });
 })
@@ -136,8 +101,6 @@ router.post('/upload/image', upload.single('image'), function (req, res) {
 router.delete('/', (req, res) => {
     var id = req.body.id;
     var imageName = req.body.image;
-    console.log(req.body)
-    console.log(imageName)
     fs.unlink('./uploads/images/clients/' + imageName, function (err) {
         if (err) {
             return console.log(err)

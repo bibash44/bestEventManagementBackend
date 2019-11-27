@@ -17,7 +17,7 @@ app.use("/uploads/images/clients", express.static("uploads/images/clients"));
 app.use("/uploads/images/clients", express.static("uploads/images/clients"));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({extended: true }))
 app.use(cors());
 
 require('./DB/DB_CONNECTION');
@@ -38,13 +38,14 @@ var services_home = require('./ROUTES/services_home');
 var sliding_image = require('./ROUTES/sliding_image');
 var success_story = require('./ROUTES/success_story');
 var booking= require('./ROUTES/booking');
+var clients= require('./ROUTES/clients');
 
 /* routes for frontend for front end */
 app.use('/index', index);
 app.use('/checkemail', checkLoginEmail);
 app.use('/login', checkLogin);
 app.use('/review', reviews)
-// app.use('/clients', clients);
+app.use('/clients', clients);
 app.use('/contact', contact);
 app.use('/home', home);
 app.use('/portfolio', portfolio);
@@ -54,6 +55,7 @@ app.use('/services_home', services_home);
 app.use('/sliding_image', sliding_image);
 app.use('/success_story', success_story);
 app.use('/booking', booking);
+// app.use('/clients', booking);
 
 
 

@@ -2,7 +2,6 @@ var express = require('express')
 var router = express.Router();
 var db= require('../DB/DB_CONNECTION');
 var nodemailer = require('nodemailer');
-
 router.post('/', function(req, res){
     var email=req.body.email;
     var password= req.body.password;
