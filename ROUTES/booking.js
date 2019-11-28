@@ -34,11 +34,9 @@ router.post('/', function(req, res) {
     var useremail = req.body.email;
     var userphone = req.body.phone_number;
     var prefered_location = req.body.prefered_location;
+    var booking_option = req.body.booking_option;
     var booked_time = date;
-
-    var insert_booking = "INSERT INTO booking (id, username, useremail, userphone , prefered_location, booked_time) VALUES (NULL, " + '"' + username + '"' + " ," + '"' + useremail + '"' + ", " + '"' + userphone + '"' + ", " + '"' + prefered_location + '"' + ", " + '"' + booked_time + '"' + ");";
-
-    console.log(insert_booking);
+    var insert_booking = "INSERT INTO booking (id, username, useremail, userphone , booking_option, prefered_location, booked_time) VALUES (NULL, " + '"' + username + '"' + " ," + '"' + useremail + '"' + ", " + '"' + userphone + '"' + ", " + '"' + booking_option + '"' + ", " + '"' + prefered_location + '"' + ", " + '"' + booked_time + '"' + ");";
 
     db.query(insert_booking, function(err, result, fields) {
         if (err) {
